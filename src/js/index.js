@@ -6,7 +6,7 @@ import ReactDOM from "react-dom";
 import "../styles/index.css";
 
 //import your own components
-import InputDigitCard from "./component/Input.jsx";
+import SimpleCounter from "./component/Input.jsx";
 
 //render your react application
-ReactDOM.render(<InputDigitCard />, document.querySelector("#app"));
+ReactDOM.render(<SimpleCounter />, document.querySelector("#app"));

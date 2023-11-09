@@ -1,37 +1,32 @@
-import React from "react";
-import InputDigits from "./Input";
+import React, { useState, useEffect } from "react";
+import InputDigitCard from "./Input";
 
-const SimpleCounter = (props) => {
+const SimpleCounter = () => {
+  const [counter, setTime] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTime((prev) => prev + 1)
+      console.log([counter]);
+    }, 1000)
+  }, [counter])
 
   return (
-    <div>
-      <InputDigits
-        Watcher={props.faWatchmanMonitoring}
-        Digit6={props.digitsSix}
-        Digit5={props.digitsFive}
-        Digit4={props.digitsFour}
-        Digit3={props.digitsThree}
-        Digit2={props.digitsTwo}
-        Digit1={props.digitsOne}
 
+    <div className="container-fluid">
+      <InputDigitCard
+        Watcher
+        digitSix={Math.floor(counter / 100000) % 10}
+        digitFive={Math.floor(counter / 10000) % 10}
+        digitFour={Math.floor(counter / 1000) % 10}
+        digitThree={Math.floor(counter / 100) % 10}
+        digitTwo={Math.floor(counter / 10) % 10}
+        digitOne={Math.floor(counter % 10)}
       />
-
     </div>
-  )
+  );
 };
 
-let counter = 0;
-const intervalId = setInterval(() => {
-  const Digit6 = Math.floor(counter / 100000);
-  const Digit5 = Math.floor((counter % 100000) / 10000);
-  const Digit4 = Math.floor((counter % 10000) / 1000);
-  const Digit3 = Math.floor(counter % 1000 / 100);
-  const Digit2 = Math.floor(counter % 100 / 10);
-  const Digit1 = Math.floor(counter % 10);
-  counter++;
-} 1000;);
-
-console.log(counter);
-
-
 export default SimpleCounter;
+
+
