@@ -5,11 +5,14 @@ const SimpleCounter = () => {
   const [counter, setTime] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      setTime((prev) => prev + 1)
-      console.log([counter]);
-    }, 1000)
-  }, [counter])
+    const intervalId = setInterval(() => {
+      setTime((prev) => prev + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
 
