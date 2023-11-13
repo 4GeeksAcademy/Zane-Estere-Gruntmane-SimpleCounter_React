@@ -20,6 +20,17 @@ const InputDigitCard = (props) => {
             </div>
             <div className="card-footer text-light-emphasis fw-lighter">
                 every second matters.. 〰 .. when you surf a wave
+
+                <div className="buttons text-light-emphasis fw-lighter">  
+                <button type="button" className="btn btn-info btn-sm me-2">
+                    Stop </button>
+                <button type="button" className="btn btn-info btn-sm me-2">
+                   Reset </button>
+        
+                <button type="button" className="btn btn-info btn-sm me-2">
+                   Resume </button>
+                 </div>
+
             </div>
         </div>
 
